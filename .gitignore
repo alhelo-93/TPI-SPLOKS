@@ -1,1 +1,5 @@
 const.py
+.idea
+__pycache__
+*.mwb.bak
+*_icescrum*
