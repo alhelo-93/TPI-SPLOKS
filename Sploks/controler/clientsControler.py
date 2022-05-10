@@ -9,3 +9,4 @@ def displayClients():
         """
     global wClients
     wClients = uic.loadUi('views/customers.ui')  # Load the .ui file
+    wClients.show()
