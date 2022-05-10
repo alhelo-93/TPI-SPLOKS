@@ -8,7 +8,7 @@ from model.contract import Contract
 
 def displayContracts():
     """
-        * < displayCustomers >: Function that displays all the Contracts
+        * < displayContracts >: Function that displays all the Contracts
         * return: Returns nothing
     """
     global wContracts

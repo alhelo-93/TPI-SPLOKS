@@ -23,9 +23,11 @@ def getClients():
     clients.displayClients()
 
 
+def getStaffs():
+    staffs.displayStaffs()
+
 def getContracts():
     contracts.displayContracts()
 
 
-def getStaffs():
-    staffs.displayStaffs()
+
