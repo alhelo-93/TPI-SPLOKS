@@ -14,12 +14,10 @@ def displayCustomers():
     wCustomers = uic.loadUi('views/clients.ui')  # Load the .ui file
     wCustomers.btnaddclient.clicked.connect(addNewCustomer)
 
-
     global customer
     customer = Customer()
     loadTableCustomers(customer.all())
     wCustomers.show()
-
 
 
 def displayDetail():
@@ -29,7 +27,8 @@ def displayDetail():
     global w_customer_details
     w_customer_details = uic.loadUi('views/clientsDetails.ui')  # Load the .ui file
     global customer_Id
-    customer_Id = wCustomers.tableCustomers.item(wCustomers.tableCustomers.currentRow(), 0).text()  # Get the id of the clicked customer
+    customer_Id = wCustomers.tableCustomers.item(wCustomers.tableCustomers.currentRow(),
+                                                 0).text()  # Get the id of the clicked customer
     customer.load(customer_Id)  # Calls function that loads data of the customer with his id
     loadCustomerDetails()  # Calls function that displays the data in window with lastname and firstname as customer's identifier
     w_customer_details.show()  # Show the window
@@ -57,17 +56,17 @@ def loadTableCustomers(customers):
         for column_number, data in enumerate(customer):
             cell = QtWidgets.QTableWidgetItem(str(data))  # Initializes the variable as a TableWidget with data
             wCustomers.tableCustomers.setItem(row_number, column_number, cell)  # Add data in the cell of the table
-            wCustomers.tableCustomers.cellClicked.connect(displayDetail)  # Opens the customer's details' window when clicked in a cell
-
+            wCustomers.tableCustomers.cellClicked.connect(loadCustomerDetails)  # Opens the customer's details' window when clicked in a cell
 
 
 def loadCustomerDetails():
-         """
+    """
          It loads the customer details into the customer details window
          """
-         w_customer_details.lblNom.setText(str(customer.lastname))  # Set label's text with the lastname
-         w_customer_details.lblPrenom.setText(str(customer.firstname))  # Set label's text with firstname
-         w_customer_details.lblAdresse.setText(str(customer.address))  # Set label's text with address
-         w_customer_details.lblNPA.setText(str(customer.npa) + " " + str(customer.town))  # Set label's text with NPA and town
-         w_customer_details.lblEmail.setText(str(customer.email))  # Set label's text with email
-         w_customer_details.lblNumero.setText(str(customer.mobile))  # Set label's text with mobile number
+    w_customer_details.lblNom.setText(str(customer.lastname))  # Set label's text with the lastname
+    w_customer_details.lblPrenom.setText(str(customer.firstname))  # Set label's text with firstname
+    w_customer_details.lblAdresse.setText(str(customer.address))  # Set label's text with address
+    w_customer_details.lblNPA.setText(
+        str(customer.npa) + " " + str(customer.town))  # Set label's text with NPA and town
+    w_customer_details.lblEmail.setText(str(customer.email))  # Set label's text with email
+    w_customer_details.lblNumero.setText(str(customer.mobile))  # Set label's text with mobile number
