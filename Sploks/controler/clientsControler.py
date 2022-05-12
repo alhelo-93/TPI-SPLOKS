@@ -1,8 +1,5 @@
 from PyQt5 import QtWidgets, uic, QtCore
-from const import con
-from model import mold
 from model.client import Customer
-import sys
 
 
 def displayCustomers():
@@ -16,6 +13,7 @@ def displayCustomers():
 
     global customer
     customer = Customer()
+    wCustomers.tableCustomers.cellClicked.connect(displayDetail)
     loadTableCustomers(customer.all())
     wCustomers.show()
 
