@@ -5,10 +5,10 @@ from model import mold
 class Customer:
 
     def load(self, id):
-        customer_data = mold.selectOneWithParams("SELECT customers.id,firstname,lastname,email,mobile,address,"
+        customer_data = mold.selectOneWithParams("customers.id,firstname,lastname,email,mobile,address,"
                                                  "npas.npa,npas.town",
                                                  "customers",
-                                                 f"inner join npas on npas.id = customers.npa_id Where id = {id}")
+                                                 f"inner join npas on npas.id = customers.npa_id Where customers.id = {id}")
         self.id = customer_data['id']
         self.lastname = customer_data['lastname']
         self.firstname = customer_data['firstname']
