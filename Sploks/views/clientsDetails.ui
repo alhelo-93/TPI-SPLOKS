@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>840</width>
-    <height>270</height>
+    <width>1032</width>
+    <height>457</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>81</width>
+      <x>50</x>
+      <y>70</y>
+      <width>111</width>
       <height>161</height>
      </rect>
     </property>
@@ -91,8 +91,8 @@
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>10</y>
+      <x>180</x>
+      <y>70</y>
       <width>271</width>
       <height>161</height>
      </rect>
@@ -139,9 +139,9 @@
    <widget class="QWidget" name="verticalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>10</y>
-      <width>121</width>
+      <x>500</x>
+      <y>70</y>
+      <width>161</width>
       <height>161</height>
      </rect>
     </property>
@@ -190,25 +190,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_10">
-       <property name="font">
-        <font>
-         <family>Arial Black</family>
-         <pointsize>10</pointsize>
-         <weight>10</weight>
-         <italic>false</italic>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Téléphone :</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QLabel" name="label_14">
        <property name="styleSheet">
         <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
@@ -223,8 +204,8 @@
    <widget class="QWidget" name="verticalLayoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>10</y>
+      <x>690</x>
+      <y>70</y>
       <width>311</width>
       <height>161</height>
      </rect>
@@ -255,18 +236,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="lblTelephone">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QLabel" name="lblEmail">
        <property name="font">
         <font>
@@ -280,17 +249,20 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="btnContracts">
+   <widget class="QPushButton" name="btnActivation">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>200</y>
+      <x>40</x>
+      <y>330</y>
       <width>140</width>
       <height>50</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Activer&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="text">
-     <string>Liste des contrats</string>
+     <string>Activer</string>
     </property>
     <property name="checkable">
      <bool>false</bool>
@@ -299,43 +271,107 @@
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>180</y>
-      <width>810</width>
-      <height>15</height>
+      <x>0</x>
+      <y>260</y>
+      <width>1031</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="lbl_nbContracts">
+   <widget class="QLabel" name="lblTitel">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>214</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>210</y>
+      <x>300</x>
+      <y>10</y>
       <width>111</width>
-      <height>20</height>
+      <height>50</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>10</pointsize>
+      <weight>10</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
     </property>
     <property name="text">
-     <string>Nb Contrats:</string>
+     <string>Client (e):</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblClient_2">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>10</y>
+      <width>71</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>10</pointsize>
+      <weight>10</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTitel_2">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>10</y>
+      <width>71</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>10</pointsize>
+      <weight>10</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTitleClient">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>10</y>
+      <width>269</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>...</string>
     </property>
    </widget>
   </widget>
