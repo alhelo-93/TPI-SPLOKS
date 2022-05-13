@@ -52,7 +52,7 @@ def loadCustomerDetails():
     """
          It loads the customer details into the customer details window
     """
-    # show name lastname of client on top of the form 
+    # show name lastname of client on top of the form
     w_customer_details.lblTitleClient.setText(str(customer.firstname)+" "+str(customer.lastname))
     w_customer_details.lblNom.setText(str(customer.lastname))  # Set label's text with the lastname
     w_customer_details.lblPrenom.setText(str(customer.firstname))  # Set label's text with firstname
