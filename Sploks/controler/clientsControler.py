@@ -32,16 +32,6 @@ def displayDetail():
     w_customer_details.show()  # Show the window
 
 
-def addNewCustomer():
-    """
-           * < clientForum >: Function that displays new client forum
-           * return: Returns nothing
-       """
-    global wNewClient
-    wNewClient = uic.loadUi('views/newclient.ui')  # Load the .ui file
-    wNewClient.show()
-
-
 def loadTableCustomers(customers):
     """
     It will display the data in the table
@@ -54,17 +44,29 @@ def loadTableCustomers(customers):
         for column_number, data in enumerate(customer):
             cell = QtWidgets.QTableWidgetItem(str(data))  # Initializes the variable as a TableWidget with data
             wCustomers.tableCustomers.setItem(row_number, column_number, cell)  # Add data in the cell of the table
-            wCustomers.tableCustomers.cellClicked.connect(loadCustomerDetails)  # Opens the customer's details' window when clicked in a cell
+            wCustomers.tableCustomers.cellClicked.connect(
+                loadCustomerDetails)  # Opens the customer's details' window when clicked in a cell
 
 
 def loadCustomerDetails():
     """
          It loads the customer details into the customer details window
-         """
+    """
+    # show name lastname of client on top of the form 
+    w_customer_details.lblTitleClient.setText(str(customer.firstname)+" "+str(customer.lastname))
     w_customer_details.lblNom.setText(str(customer.lastname))  # Set label's text with the lastname
     w_customer_details.lblPrenom.setText(str(customer.firstname))  # Set label's text with firstname
     w_customer_details.lblAdresse.setText(str(customer.address))  # Set label's text with address
-    w_customer_details.lblNPA.setText(
-        str(customer.npa) + " " + str(customer.town))  # Set label's text with NPA and town
+    w_customer_details.lblNPA.setText(str(customer.npa) + " " + str(customer.town))  # Set label's text with NPA and town
     w_customer_details.lblEmail.setText(str(customer.email))  # Set label's text with email
     w_customer_details.lblNumero.setText(str(customer.mobile))  # Set label's text with mobile number
+
+
+def addNewCustomer():
+    """
+           * < clientForum >: Function that displays new client forum
+           * return: Returns nothing
+       """
+    global wNewClient
+    wNewClient = uic.loadUi('views/newclient.ui')  # Load the .ui file
+    wNewClient.show()
