@@ -58,11 +58,9 @@ def loadStaffDetails():
 
 
 def updatePhoneNumber():
-
     value = w_staffs_details.inputphone.text()
     if not staff.update(value):
         print("test")
-
 
 
 def closeCurrentWindow():
@@ -71,6 +69,3 @@ def closeCurrentWindow():
 
 def refrechData():
     displayStaffs()
-
-
-
