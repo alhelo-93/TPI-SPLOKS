@@ -19,19 +19,6 @@ def displayCustomers():
     wCustomers.show()
 
 
-def displayDetail():
-    """
-    It displays the details of one customer using its id
-    """
-    global w_customer_details
-    w_customer_details = uic.loadUi('views/clientsDetails.ui')  # Load the .ui file
-    global customer_Id
-    customer_Id = wCustomers.tableCustomers.item(wCustomers.tableCustomers.currentRow(), 0).text()  # Get the id of
-    # the clicked customer
-    customer.load(customer_Id)  # Calls function that loads data of the customer with his id
-    w_customer_details.show()  # Show the window
-
-
 def loadTableCustomers(customers):
     """
     It will display the data in the table
@@ -48,6 +35,19 @@ def loadTableCustomers(customers):
                 loadCustomerDetails)  # Opens the customer's details' window when clicked in a cell
 
 
+def displayDetail():
+    """
+    It displays the details of one customer using its id
+    """
+    global w_customer_details
+    w_customer_details = uic.loadUi('views/clientsDetails.ui')  # Load the .ui file
+    global customer_Id
+    customer_Id = wCustomers.tableCustomers.item(wCustomers.tableCustomers.currentRow(), 0).text()  # Get the id of
+    # the clicked customer
+    customer.load(customer_Id)  # Calls function that loads data of the customer with his id
+    w_customer_details.show()  # Show the window
+
+
 def loadCustomerDetails():
     """
          It loads the customer details into the customer details window
@@ -62,7 +62,8 @@ def loadCustomerDetails():
     w_customer_details.inputMail.setText(str(customer.email))  # Set label's text with email
     w_customer_details.inputMobile.setText(str(customer.mobile))  # Set label's text with mobile number
 
-    w_customer_details.btnSave.clicked.connect(refrechDataCustomer)
+    w_customer_details.btnSave.clicked.connect(UpdateCustomerDetails)
+
     w_customer_details.btnSave.clicked.connect(closeCurrentDetailsWindow)
 
 
@@ -100,10 +101,6 @@ def addNewCustomer():
 
 def closeCurrentWindow():
     wNewClient.close()
-
-
-def refrechDataCustomer():
-    loadTableCustomers(customer.all())
 
 
 def closeCurrentDetailsWindow():
