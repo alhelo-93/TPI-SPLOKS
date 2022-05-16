@@ -139,7 +139,7 @@
      <string>...</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="inputName">
+   <widget class="QLineEdit" name="inputFirstName">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -149,7 +149,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="inputLasteName">
+   <widget class="QLineEdit" name="inputLastName">
     <property name="geometry">
      <rect>
       <x>180</x>
