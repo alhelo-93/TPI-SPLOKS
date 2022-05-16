@@ -18,6 +18,16 @@ class Customer:
         self.npa = customer_data['npa']
         self.town = customer_data['town']
 
+    def createNew(self, values):
+        columus: "lastname,firstname,address,phone,email,mobile,nap_id"
+        new_id = mold.createOne("customers", f"{columus}", f"{values}")
+        self.id = new_id
+
+    def updateOne(self, values):
+        mold.updateOne("customer",
+                       f"lastname='{values[0]}',firstname='{values[1]}',email='{values[2]}',mobile={values[3]},address='{values[4]}'",
+                       f"WHERE id = {self.id}")
+
     @staticmethod
     def all():
         return mold.selectWithParams("customers.id,lastname,firstname,address,npas.npa,npas.town,email,mobile",
