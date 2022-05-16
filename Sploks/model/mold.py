@@ -64,11 +64,12 @@ def updateOne(table, values, params=""):
         query = f"UPDATE {table} SET {values} {params}"
         cur.execute(query)
         con.commit()
+
     except mysql.connector.Error as sqlError:
         print(sqlError)
-        return True
+
     except:
-        return True
+        "Unknown error"
 
 
 
