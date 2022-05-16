@@ -12,7 +12,10 @@ class Staff:
         self.phone = staff_member['phone']
 
     def update(self, values):
-        mold.updateOne("staffs", "phone", f"{values}", f"WHERE id = {self.id}")
+
+            mold.updateOne("staffs", "phone", f"{values}", f"WHERE id = {self.id}")
+
+
 
     @staticmethod
     def all():

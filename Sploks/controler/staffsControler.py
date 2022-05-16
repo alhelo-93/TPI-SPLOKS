@@ -38,6 +38,8 @@ def displayDetail():
     global w_staffs_details
     w_staffs_details = uic.loadUi('views/staffsDetails.ui')  # Load the .ui file
     w_staffs_details.btnSave.clicked.connect(updatePhoneNumber)
+    w_staffs_details.btnSave.clicked.connect(refrechData)
+    w_staffs_details.btnSave.clicked.connect(closeCurrentWindow)
 
     global staff_Id
     staff_Id = wStaffs.tableStaff.item(wStaffs.tableStaff.currentRow(), 0).text()
@@ -56,6 +58,19 @@ def loadStaffDetails():
 
 
 def updatePhoneNumber():
+
     value = w_staffs_details.inputphone.text()
-    staff.update(value)
+    if not staff.update(value):
+        print("test")
+
+
+
+def closeCurrentWindow():
+    w_staffs_details.close()
+
+
+def refrechData():
+    displayStaffs()
+
+
 
