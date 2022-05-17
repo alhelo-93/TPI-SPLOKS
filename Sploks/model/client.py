@@ -8,8 +8,7 @@ class Customer:
         customer_data = mold.selectOneWithParams("customers.id,firstname,lastname,email,mobile,address,npa_id,"
                                                  "npas.npa,npas.town",
                                                  "customers",
-                                                 f"inner join npas on npas.id = customers.npa_id Where customers.id = {id}"
-                                                 f"Order by lastname DESC")
+                                                 f"inner join npas on npas.id = customers.npa_id Where customers.id = {id}")
         self.id = customer_data['id']
         self.lastname = customer_data['lastname']
         self.firstname = customer_data['firstname']
@@ -34,5 +33,4 @@ class Customer:
     @staticmethod
     def all():
         return mold.selectWithParams("customers.id,lastname,firstname,address,npas.npa,npas.town,email,mobile",
-                                     "customers", "inner join npas on npas.id = customers.npa_id"
-                                     f"Order by customers.lastname DESC")
+                                     "customers", "inner join npas on npas.id = customers.npa_id")
