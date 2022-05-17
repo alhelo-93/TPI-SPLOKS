@@ -5,7 +5,7 @@ from model import mold
 class Customer:
 
     def load(self, id):
-        customer_data = mold.selectOneWithParams("customers.id,firstname,lastname,email,mobile,address,"
+        customer_data = mold.selectOneWithParams("customers.id,firstname,lastname,email,mobile,address,npa_id,"
                                                  "npas.npa,npas.town",
                                                  "customers",
                                                  f"inner join npas on npas.id = customers.npa_id Where customers.id = {id}")
@@ -15,13 +15,14 @@ class Customer:
         self.email = customer_data['email']
         self.mobile = customer_data['mobile']
         self.address = customer_data['address']
+        self.npaID = customer_data['npa_id']
         self.npa = customer_data['npa']
         self.town = customer_data['town']
 
     def createNew(self, values):
-        columus: "lastname,firstname,address,phone,email,mobile,nap_id"
-        new_id = mold.createOne("customers", f"{columus}", f"{values}")
-        self.id = new_id
+            columus = 'lastname,firstname,address,email,mobile,npa_id'
+            new_id = mold.createOne("customers", f"{columus}", f"{values}")
+            self.id = new_id
 
     def updateOne(self, values):
         mold.updateOne("customers",
