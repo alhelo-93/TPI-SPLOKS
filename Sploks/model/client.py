@@ -27,10 +27,10 @@ class Customer:
     def updateOne(self, values):
         mold.updateOne("customers",
                        f"lastname='{values[0]}',firstname='{values[1]}',address='{values[2]}',email='{values[3]}', "
-                       f"mobile= '{values[4]}'",
+                       f"mobile= '{values[4]}' ",
                        f"WHERE id = {self.id}")
 
     @staticmethod
     def all():
         return mold.selectWithParams("customers.id,lastname,firstname,address,npas.npa,npas.town,email,mobile",
-                                     "customers", "inner join npas on npas.id = customers.npa_id")
+                                     "customers", "inner join npas on npas.id = customers.npa_id order by lastname")

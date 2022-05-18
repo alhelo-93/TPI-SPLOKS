@@ -19,7 +19,7 @@ def selectOneWithParams(columns, table, params):
 
 def selectWithParams(columns, table, params=""):
     try:
-        query = f"SELECT {columns} FROM {table} {params} Order by {table}.id"
+        query = f"SELECT {columns} FROM {table} {params} "
         cur.execute(query)
         return cur.fetchall()
     except mysql.connector.Error as sqlError:
