@@ -27,7 +27,7 @@ class Customer:
     def updateOne(self, values):
         mold.updateOne("customers",
                        f"lastname='{values[0]}',firstname='{values[1]}',address='{values[2]}',email='{values[3]}', "
-                       f"mobile= '{values[4]}' ",
+                       f"mobile= '{values[4]}'",
                        f"WHERE id = {self.id}")
 
     @staticmethod
