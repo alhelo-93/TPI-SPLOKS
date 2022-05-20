@@ -15,7 +15,6 @@ class Customer:
         self.email = customer_data['email']
         self.mobile = customer_data['mobile']
         self.address = customer_data['address']
-        self.npaID = customer_data['npa_id']
         self.npa = customer_data['npa']
         self.town = customer_data['town']
 
@@ -25,10 +24,11 @@ class Customer:
             self.id = new_id
 
     def updateOne(self, values):
-        mold.updateOne("customers",
-                       f"lastname='{values[0]}',firstname='{values[1]}',address='{values[2]}',email='{values[3]}', "
-                       f"mobile= '{values[4]}'",
-                       f"WHERE id = {self.id}")
+        mold.updateOne("customers ",
+                       "npas on npas.id = customers.npa_id",
+                       f"lastname='{values[0]}',firstname='{values[1]}',address='{values[2]}',email='{values[3]}',"
+                       f"mobile= '{values[4]}', npa= {values[5]} ,town= '{values[6]}'",
+                       f"WHERE customers.id = {self.id} ")
 
     @staticmethod
     def all():
