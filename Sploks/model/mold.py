@@ -52,7 +52,7 @@ def updateOneField(table, field, values, params=" "):
         "Unknown error"
 
 
-def updateOne(table, values, params=""):
+def updateOne(table, query, values, params=""):
     """
     Update a table in the database
 
@@ -61,7 +61,7 @@ def updateOne(table, values, params=""):
     :param params: The WHERE clause
     """
     try:
-        query = f"UPDATE {table} SET {values} {params}"
+        query = f"UPDATE {table} Inner join {query} SET {values} {params}"
         cur.execute(query)
         con.commit()
     except mysql.connector.Error as sqlError:
