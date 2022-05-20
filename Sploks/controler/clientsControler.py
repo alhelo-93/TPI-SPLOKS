@@ -1,5 +1,6 @@
+import sys
 from PyQt5 import QtWidgets, uic
-
+import time
 from model.client import Customer
 
 
@@ -10,6 +11,7 @@ def displayCustomers():
     """
     global wCustomers
     wCustomers = uic.loadUi('views/clients.ui')  # Load the .ui file
+    wCustomers.LblMsgConfirmation.hide()
     wCustomers.btnaddclient.clicked.connect(displayAddNewForm)
 
     global customer
@@ -55,17 +57,27 @@ def loadCustomerDetails():
          It loads the customer details into the customer details window
     """
     # show name lastname of client on top of the form
-    w_customer_details.lblTitleClient.setText(str(customer.firstname) + " " + str(customer.lastname))
+    """"
+    emptyText = w_customer_details.inputFirstName.setText(str(customer.firstname))
+    if not emptyText == "":
+        w_customer_details.btnSave.setEnabled(False)
+    """
+
+    # Set label's text with the lastname and firstname as Title
+    w_customer_details.lblTitleClient.setText(str(customer.firstname) + "   " + str(customer.lastname))
+
     w_customer_details.inputLastName.setText(str(customer.lastname))  # Set label's text with the lastname
+
     w_customer_details.inputFirstName.setText(str(customer.firstname))  # Set label's text with firstname
     w_customer_details.inputaddress.setText(str(customer.address))  # Set label's text with address
-    w_customer_details.lblNPA.setText(str(customer.npa) + " " + str(customer.town))  # Set label's text with NPA and
-    # town
+    w_customer_details.inputNpa.setText(str(customer.npa))  # Set label's text with NPA and
+    w_customer_details.inputTown.setText(str(customer.town))  # town
     w_customer_details.inputMail.setText(str(customer.email))  # Set label's text with email
     w_customer_details.inputMobile.setText(str(customer.mobile))  # Set label's text with mobile number
     w_customer_details.btnSave.clicked.connect(UpdateCustomerDetails)
     w_customer_details.btnSave.clicked.connect(refrechCustomerData)
     w_customer_details.btnSave.clicked.connect(closeCurrentDetailsWindow)
+    w_customer_details.btnSave.clicked.connect(MsgOfModification)
 
 
 def UpdateCustomerDetails():
@@ -74,9 +86,10 @@ def UpdateCustomerDetails():
     customer.address = w_customer_details.inputaddress.text()
     customer.email = w_customer_details.inputMail.text()
     customer.mobile = w_customer_details.inputMobile.text()
-
-    updateRecord = [customer.firstname, customer.lastname, customer.address, customer.email, customer.mobile]
-
+    customer.npa = w_customer_details.inputNpa.text()
+    customer.town = w_customer_details.inputTown.text()
+    updateRecord = [customer.firstname, customer.lastname, customer.address, customer.email, customer.mobile,
+                    customer.npa, customer.town]
     customer.updateOne(updateRecord)
 
 
@@ -102,7 +115,8 @@ def addNewCustomer():
     customer.email = wNewClient.inputEmail.text()
     customer.npaID = wNewClient.inputNPAId.cursorPosition()
 
-    newRecord = (customer.firstname, customer.lastname, customer.address, customer.email, customer.mobile, customer.npaID)
+    newRecord = (
+        customer.firstname, customer.lastname, customer.address, customer.email, customer.mobile, customer.npaID)
     customer.createNew(newRecord)
 
 
@@ -116,3 +130,10 @@ def closeCurrentDetailsWindow():
 
 def refrechCustomerData():
     loadTableCustomers()
+
+
+def MsgOfModification():
+    wCustomers.LblMsgConfirmation.setText(
+        "le client est modifié" + " " + str(customer.firstname) + " " + str(customer.lastname))
+    wCustomers.LblMsgConfirmation.show()
+
