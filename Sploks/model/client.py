@@ -24,8 +24,7 @@ class Customer:
             self.id = new_id
 
     def updateOne(self, values):
-        mold.updateOne("customers ",
-                       "npas on npas.id = customers.npa_id",
+        mold.updateOne("customers ", "npas on npas.id = customers.npa_id",
                        f"lastname='{values[0]}',firstname='{values[1]}',address='{values[2]}',email='{values[3]}',"
                        f"mobile= '{values[4]}', npa= {values[5]} ,town= '{values[6]}'",
                        f"WHERE customers.id = {self.id} ")
