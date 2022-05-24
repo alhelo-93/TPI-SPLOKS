@@ -58,11 +58,7 @@ def loadCustomerDetails():
     """
     # show name lastname of client on top of the form
     """"
-    emptyText = w_customer_details.inputFirstName.setText(str(customer.firstname))
-    if not emptyText == "":
-        w_customer_details.btnSave.setEnabled(False)
     """
-
     # Set label's text with the lastname and firstname as Title
     w_customer_details.lblTitleClient.setText(str(customer.firstname) + "   " + str(customer.lastname))
 
@@ -74,6 +70,7 @@ def loadCustomerDetails():
     w_customer_details.inputTown.setText(str(customer.town))  # town
     w_customer_details.inputMail.setText(str(customer.email))  # Set label's text with email
     w_customer_details.inputMobile.setText(str(customer.mobile))  # Set label's text with mobile number
+    w_customer_details.btnHistory.clicked.connect(historyOfModification)
     w_customer_details.btnSave.clicked.connect(UpdateCustomerDetails)
     w_customer_details.btnSave.clicked.connect(refrechCustomerData)
     w_customer_details.btnSave.clicked.connect(closeCurrentDetailsWindow)
@@ -97,8 +94,7 @@ def displayAddNewForm():
     global wNewClient
     wNewClient = uic.loadUi('views/newclient.ui')  # Load the .ui file
     wNewClient.btnAddOK.clicked.connect(addNewCustomer)
-    wNewClient.btnAddOK.clicked.connect(displayCustomers)
-    wNewClient.btnAddOK.clicked.connect(closeCurrentWindow)
+
     wNewClient.show()
 
 
@@ -111,12 +107,14 @@ def addNewCustomer():
     customer.firstname = wNewClient.inputName.text()
     customer.lastname = wNewClient.inputLastName.text()
     customer.address = wNewClient.inputAddress.text()
-    customer.mobile = wNewClient.inputPhone.text()
     customer.email = wNewClient.inputEmail.text()
-    customer.npaID = wNewClient.inputNPAId.cursorPosition()
+    customer.mobile = wNewClient.inputPhone.text()
+    customer.town = wNewClient.inputCity.text()
+    customer.npa = wNewClient.inputNpa.text()
 
     newRecord = (
-        customer.firstname, customer.lastname, customer.address, customer.email, customer.mobile, customer.npaID)
+        customer.npa, customer.town, customer.firstname, customer.lastname, customer.address, customer.email,
+        customer.mobile,)
     customer.createNew(newRecord)
 
 
@@ -136,4 +134,24 @@ def MsgOfModification():
     wCustomers.LblMsgConfirmation.setText(
         "le client est modifié" + " " + str(customer.firstname) + " " + str(customer.lastname))
     wCustomers.LblMsgConfirmation.show()
+
+
+def historyOfModification():
+    global whistory
+    whistory = uic.loadUi('views/historylist.ui')
+
+    loadHistoryOfModification()
+    whistory.show()
+
+
+def loadHistoryOfModification():
+    listM = Customer.Historylist()
+    for row_number, onehistory in enumerate(listM):
+        whistory.tblModifcation.insertRow(row_number)
+        for column_number, data in enumerate(onehistory):
+            cell = QtWidgets.QTableWidgetItem(str(data))
+            whistory.tblModifcation.setItem(row_number, column_number, cell)
+
+
+
 

@@ -20,8 +20,8 @@
    <widget class="QPushButton" name="btnActivation">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>330</y>
+      <x>90</x>
+      <y>290</y>
       <width>140</width>
       <height>50</height>
      </rect>
@@ -393,6 +393,25 @@
     </property>
     <property name="text">
      <string>|</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnHistory">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>350</y>
+      <width>140</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Activer&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Historique</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>

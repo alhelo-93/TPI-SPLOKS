@@ -17,8 +17,9 @@ def selectOneWithParams(columns, table, params):
         "Unknown error"
 
 
-def selectWithParams(columns, table, params=""):
+def selectWithParams(columns, table, params):
     try:
+
         query = f"SELECT {columns} FROM {table} {params} "
         cur.execute(query)
         return cur.fetchall()
@@ -52,7 +53,7 @@ def updateOneField(table, field, values, params=" "):
         "Unknown error"
 
 
-def updateOne(table, query, values, params=""):
+def updateOne(table, join,values, params=""):
     """
     Update a table in the database
 
@@ -61,7 +62,7 @@ def updateOne(table, query, values, params=""):
     :param params: The WHERE clause
     """
     try:
-        query = f"UPDATE {table} Inner join {query} SET {values} {params}"
+        query = f"UPDATE {table} Inner join {join} SET {values} {params}"
         cur.execute(query)
         con.commit()
     except mysql.connector.Error as sqlError:
@@ -80,7 +81,7 @@ def createOne(table, columns, values):
     :return: The last row id of the table.
     """
     try:
-        query = f"INSERT INTO {table} ({columns}) VALUES {values}"
+        query = f"INSERT INTO {table} {columns} VALUES {values}"
         cur.execute(query)
         con.commit()
         return cur.getlastrowid()
