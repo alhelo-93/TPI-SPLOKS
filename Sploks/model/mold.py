@@ -81,7 +81,7 @@ def createOne(table, columns, values):
     :return: The last row id of the table.
     """
     try:
-        query = f"INSERT INTO {table} {columns} VALUES {values}"
+        query = f"INSERT INTO {table} ({columns}) VALUES ({values})"
         cur.execute(query)
         con.commit()
         return cur.getlastrowid()

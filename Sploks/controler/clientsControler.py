@@ -94,6 +94,9 @@ def displayAddNewForm():
     global wNewClient
     wNewClient = uic.loadUi('views/newclient.ui')  # Load the .ui file
     wNewClient.btnAddOK.clicked.connect(addNewCustomer)
+    wNewClient.btnAddOK.clicked.connect(closeCurrentWindow)
+    wNewClient.btnAddOK.clicked.connect(refrechCustomerData)
+
 
     wNewClient.show()
 
@@ -112,9 +115,8 @@ def addNewCustomer():
     customer.town = wNewClient.inputCity.text()
     customer.npa = wNewClient.inputNpa.text()
 
-    newRecord = (
-        customer.npa, customer.town, customer.firstname, customer.lastname, customer.address, customer.email,
-        customer.mobile,)
+    newRecord = (customer.firstname, customer.lastname, customer.address, customer.email,
+                 customer.mobile, customer.npa, customer.town)
     customer.createNew(newRecord)
 
 
@@ -151,7 +153,3 @@ def loadHistoryOfModification():
         for column_number, data in enumerate(onehistory):
             cell = QtWidgets.QTableWidgetItem(str(data))
             whistory.tblModifcation.setItem(row_number, column_number, cell)
-
-
-
-
