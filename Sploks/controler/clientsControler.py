@@ -29,6 +29,8 @@ def loadTableCustomers():
     """
     customers = Customer.all()
     wCustomers.tableCustomers.cellClicked.connect(loadCustomerDetails)
+    wCustomers.lblSearchBox.textChanged.connect(filter_list)
+
     wCustomers.tableCustomers.setColumnHidden(0, True)  # Set the id's column as hidden
     for row_number, customer in enumerate(customers):  # Loop that will display data in the table
         wCustomers.tableCustomers.insertRow(row_number)  # Insert the amount of rows needed
@@ -36,6 +38,32 @@ def loadTableCustomers():
             cell = QtWidgets.QTableWidgetItem(str(data))  # Initializes the variable as a TableWidget with data
             wCustomers.tableCustomers.setItem(row_number, column_number, cell)  # Add data in the cell of the table
             # Opens the customer's details' window when clicked in a cell
+
+
+
+def filter_list():
+    """
+    The function iterates through each row of the table and checks if the text in any of the cells
+    contains the filter text.
+    If it does, the row is shown. If it doesn't, the row is hidden
+    """
+    filter_txt = wCustomers.lblSearchBox.text()
+    # The above code is a loop that loops through the rows of the table.
+    #         It then loops through the columns of the table.
+    #         If the text of the cell contains the filter text, then the row is shown.
+    #         Otherwise, the row is hidden.
+    for x in range(wCustomers.tableCustomers.rowCount()):
+        match = False
+        for y in range(wCustomers.tableCustomers.columnCount()):
+            found_item = wCustomers.tableCustomers.item(x, y)
+            txt = (found_item.text()).lower()
+            if txt.find(filter_txt.lower()) != -1:
+                match = True
+                break
+
+        wCustomers.tableCustomers.setRowHidden(x, not match)
+
+
 
 
 def displayDetail():
