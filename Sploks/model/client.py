@@ -18,13 +18,7 @@ class Customer:
         self.npa = customer_data['npa']
         self.town = customer_data['town']
 
-    def loadHistory(self, id):
-        history_data = mold.selectOneWithParams("timestamp,text", 'logs',
-                                                "inner join customers on customers.id = logs.customer_id"
-                                                "Where logs.customer_id= {id}")
-        self.id = history_data['id']
-        self.lastname = history_data['customer_id']
-        self.firstname = history_data['firstname']
+
 
     def createNew(self, values):
         columus = (['firstname', 'lastname', 'address', 'email', 'mobile', 'npa_id'])
@@ -49,4 +43,4 @@ class Customer:
     @staticmethod
     def Historylist():
         return mold.selectWithParams("timestamp,text", 'logs',
-                                     "inner join customers on customers.id = logs.customer_id")
+                                     "Where logs.clientId = 1")
