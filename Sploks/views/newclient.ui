@@ -17,237 +17,149 @@
    <locale language="French" country="Switzerland"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="btnAddOK">
-    <property name="geometry">
-     <rect>
-      <x>820</x>
-      <y>440</y>
-      <width>201</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>OK</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblname">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>240</y>
-      <width>111</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial Black</family>
-      <pointsize>10</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Prénom :</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblLastName">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>150</y>
-      <width>71</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial Black</family>
-      <pointsize>10</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Nom :</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblAdresse">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>300</y>
-      <width>121</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial Black</family>
-      <pointsize>10</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Adresse :</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblPhone">
-    <property name="geometry">
-     <rect>
-      <x>510</x>
-      <y>150</y>
-      <width>201</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial Black</family>
-      <pointsize>10</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
-    </property>
-    <property name="text">
-     <string>N° Téléphone *:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblEmail">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>240</y>
-      <width>111</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Email :</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="inputLastName">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>160</y>
-      <width>241</width>
-      <height>51</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="inputName">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>230</y>
-      <width>241</width>
-      <height>51</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="inputAddress">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>310</y>
-      <width>241</width>
-      <height>61</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="inputPhone">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>160</y>
-      <width>341</width>
-      <height>61</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="inputEmail">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>230</y>
-      <width>341</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="inputNpa">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>300</y>
-      <width>131</width>
-      <height>61</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="inputCity">
-    <property name="geometry">
-     <rect>
-      <x>890</x>
-      <y>300</y>
-      <width>191</width>
-      <height>61</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="NpaVille">
-    <property name="geometry">
-     <rect>
-      <x>510</x>
-      <y>310</y>
-      <width>151</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>NPA / Ville</string>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="lblLastName">
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>10</pointsize>
+        <weight>10</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Nom :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="inputLastName"/>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="lblPhone">
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>10</pointsize>
+        <weight>10</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
+      </property>
+      <property name="text">
+       <string>N° Téléphone *:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3" colspan="2">
+     <widget class="QLineEdit" name="inputPhone"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="lblname">
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>10</pointsize>
+        <weight>10</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Prénom :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="inputName"/>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="lblEmail">
+      <property name="styleSheet">
+       <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Email :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3" colspan="2">
+     <widget class="QLineEdit" name="inputEmail">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="lblAdresse">
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>10</pointsize>
+        <weight>10</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Adresse :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="inputAddress"/>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLabel" name="NpaVille">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>NPA / Ville</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QLineEdit" name="inputNpa"/>
+    </item>
+    <item row="2" column="4">
+     <widget class="QLineEdit" name="inputCity"/>
+    </item>
+    <item row="3" column="3" colspan="2">
+     <widget class="QPushButton" name="btnAddOK">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>OK</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

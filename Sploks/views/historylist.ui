@@ -6,34 +6,30 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>560</width>
-    <height>554</height>
+    <width>759</width>
+    <height>858</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableWidget" name="tblModifcation">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>40</y>
-      <width>481</width>
-      <height>461</height>
-     </rect>
-    </property>
-    <column>
-     <property name="text">
-      <string>DATE</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Modification</string>
-     </property>
-    </column>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTableWidget" name="tblModifcation">
+      <column>
+       <property name="text">
+        <string>DATE</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Modification</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
